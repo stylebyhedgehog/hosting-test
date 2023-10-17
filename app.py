@@ -21,7 +21,6 @@ WEBHOOK_PORT = 80  # 443, 80, 88 or 8443 (port need to be 'open')
 # bot = telebot.TeleBot(API_TOKEN)
 
 app = flask.Flask(__name__)
-cors = CORS(app)
 
 print("Start")
 # Empty webserver index, return nothing, just http 200
@@ -80,7 +79,6 @@ def testhook():
 #                 # certificate=open(WEBHOOK_SSL_CERT, 'r')
 
 if __name__ == "__main__":
-# Start flask server
     app.run(port=80)
         # host=WEBHOOK_LISTEN,
         # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
