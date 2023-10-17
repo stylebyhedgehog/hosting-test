@@ -5,10 +5,11 @@ import flask
 import os
 import telebot
 from flask_cors import CORS
-API_TOKEN = os.environ.get("TELEBOT_TOKEN")
+logging.info('App start')
+# API_TOKEN = os.environ.get("TELEBOT_TOKEN")
 
 # WEBHOOK_HOST = os.environ.get("HOST_URL")
-WEBHOOK_PORT = os.environ.get("PORT")  # 443, 80, 88 or 8443 (port need to be 'open')
+WEBHOOK_PORT = 80  # 443, 80, 88 or 8443 (port need to be 'open')
 # WEBHOOK_LISTEN = os.environ.get("IP")  # In some VPS you may need to put here the IP addr
 #
 # WEBHOOK_URL_BASE = "https://%s:%s" % (WEBHOOK_HOST, WEBHOOK_PORT)
