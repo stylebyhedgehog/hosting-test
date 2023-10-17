@@ -32,7 +32,7 @@ bot = telebot.TeleBot(API_TOKEN)
 
 app = flask.Flask(__name__)
 
-
+print("Start")
 # Empty webserver index, return nothing, just http 200
 @app.route('/', methods=['GET', 'HEAD'])
 def index():
@@ -83,7 +83,8 @@ bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH,
 
 if __name__ == "__main__":
 # Start flask server
-    app.run(host=WEBHOOK_LISTEN,
+    app.run(
+        # host=WEBHOOK_LISTEN,
             port=WEBHOOK_PORT,
             # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
            )
