@@ -87,6 +87,7 @@ app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    print(message)
     bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
 
 
@@ -98,6 +99,7 @@ def echo_message(message):
 @app.route('/' + TOKEN, methods=['POST'])
 def getMessage():
     json_string = request.get_data().decode('utf-8')
+    print(json_string)
     update = telebot.types.Update.de_json(json_string)
     bot.process_new_updates([update])
     return "!", 200
