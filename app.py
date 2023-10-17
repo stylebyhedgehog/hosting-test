@@ -37,7 +37,7 @@ def testpost():
         flask.abort(403)
 
 # Process webhook calls
-@app.route(WEBHOOK_URL, methods=['POST'])
+@app.route("/"+API_TOKEN, methods=['POST'])
 def webhook():
     if flask.request.headers.get('content-type') == 'application/json':
         json_string = flask.request.get_data().decode('utf-8')
