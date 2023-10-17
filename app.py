@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    time.sleep(20)
+    time.sleep(4)
     print(message)
     bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
 
