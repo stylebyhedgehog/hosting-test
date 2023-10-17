@@ -98,20 +98,10 @@ def echo_message(message):
 
 @app.route('/' + TOKEN, methods=['POST'])
 def getMessage():
-    json_string = request.get_data().decode('utf-8')
-    print(json_string)
-    update = telebot.types.Update.de_json(json_string)
-
-    if 'message' in json_string:
-        message = telebot.types.Message.de_json(json.loads(json_string)['message'])
-        if message.text == '/start':
-            print("Ok")
-            start(message)
-        else:
-            print("Not ok")
-            bot.process_new_updates(update)
-
-    return "!", 200
+    json_str = request.get_data().decode('UTF-8')
+    update = telebot.types.Update.de_json(json_str)
+    bot.process_new_updates([update])
+    return '', 200
 
 
 @app.route("/")
