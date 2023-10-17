@@ -109,7 +109,7 @@ def getMessage():
             start(message)
         else:
             print("Not ok")
-            bot.process_new_updates([update])
+            bot.process_new_updates(update)
 
     return "!", 200
 
