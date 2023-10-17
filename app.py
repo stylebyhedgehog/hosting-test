@@ -81,6 +81,6 @@ def testhook():
 
 if __name__ == "__main__":
 # Start flask server
-    app.run(port=WEBHOOK_PORT)
+    app.run(port=80)
         # host=WEBHOOK_LISTEN,
         # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
