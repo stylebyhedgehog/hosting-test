@@ -79,7 +79,8 @@ time.sleep(1)
 
 # Set webhook
 bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH,
-                certificate=open(WEBHOOK_SSL_CERT, 'r'))
+                # certificate=open(WEBHOOK_SSL_CERT, 'r')
+                )
 
 if __name__ == "__main__":
 # Start flask server
