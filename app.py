@@ -2,8 +2,8 @@ import logging
 import time
 
 import flask
-import os
-import telebot
+# import os
+# import telebot
 from flask_cors import CORS
 logging.info('App start')
 # API_TOKEN = os.environ.get("TELEBOT_TOKEN")
