@@ -78,7 +78,7 @@ def testhook():
 # bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
 #                 # certificate=open(WEBHOOK_SSL_CERT, 'r')
 
-if __name__ == "__main__":
-    app.run(port=80)
+# if __name__ == "__main__":
+#     app.run(port=80)
         # host=WEBHOOK_LISTEN,
         # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
