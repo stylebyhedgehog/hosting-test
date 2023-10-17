@@ -99,7 +99,9 @@ def echo_message(message):
 @app.route('/' + TOKEN, methods=['POST'])
 def getMessage():
     json_str = request.get_data().decode('UTF-8')
+    print(json_str)
     update = telebot.types.Update.de_json(json_str)
+    print(update)
     bot.process_new_updates([update])
     return '', 200
 
