@@ -110,3 +110,5 @@ def webhook():
     bot.remove_webhook()
     bot.set_webhook(url='https://test-host-h6po.onrender.com/' + TOKEN)
     return "!", 200
+
+bot.polling(none_stop=True)
