@@ -52,7 +52,7 @@ def webhook():
 
 
 @app.route("/test-messaging", methods=['POST'])
-def webhook():
+def testhook():
     if flask.request.headers.get('content-type') == 'application/json':
         bot.send_message(5891891154, str(flask.request.get_data()))
         return ''
@@ -81,8 +81,9 @@ time.sleep(1)
 bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH,
                 certificate=open(WEBHOOK_SSL_CERT, 'r'))
 
+if __name__ == "__main__":
 # Start flask server
-app.run(host=WEBHOOK_LISTEN,
-        port=WEBHOOK_PORT,
-        # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
-        debug=True)
+    app.run(host=WEBHOOK_LISTEN,
+            port=WEBHOOK_PORT,
+            # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
+           )
