@@ -105,8 +105,10 @@ def getMessage():
     if 'message' in json_string:
         message = telebot.types.Message.de_json(json.loads(json_string)['message'])
         if message.text == '/start':
+            print("Ok")
             start(message)
         else:
+            print("Not ok")
             bot.process_new_updates([update])
 
     return "!", 200
