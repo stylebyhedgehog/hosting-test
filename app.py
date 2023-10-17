@@ -73,7 +73,7 @@
 #
 # # Set webhook
 # bot.set_webhook(url=WEBHOOK_URL)
-
+import json
 import os
 
 from flask import Flask, request
@@ -101,7 +101,14 @@ def getMessage():
     json_string = request.get_data().decode('utf-8')
     print(json_string)
     update = telebot.types.Update.de_json(json_string)
-    bot.process_new_updates([update])
+
+    if 'message' in json_string:
+        message = telebot.types.Message.de_json(json.loads(json_string)['message'])
+        if message.text == '/start':
+            start(message)
+        else:
+            bot.process_new_updates([update])
+
     return "!", 200
 
 
@@ -111,4 +118,3 @@ def webhook():
     bot.set_webhook(url='https://test-host-h6po.onrender.com/' + TOKEN)
     return "!", 200
 
-bot.polling(none_stop=True)
