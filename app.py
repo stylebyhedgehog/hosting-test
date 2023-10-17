@@ -11,8 +11,8 @@ WEBHOOK_HOST = os.environ.get("HOST_URL")
 WEBHOOK_PORT = os.environ.get("PORT")  # 443, 80, 88 or 8443 (port need to be 'open')
 WEBHOOK_LISTEN = os.environ.get("IP")  # In some VPS you may need to put here the IP addr
 
-WEBHOOK_SSL_CERT = './webhook_cert.pem'  # Path to the ssl certificate
-WEBHOOK_SSL_PRIV = './webhook_pkey.pem'  # Path to the ssl private key
+# WEBHOOK_SSL_CERT = './webhook_cert.pem'  # Path to the ssl certificate
+# WEBHOOK_SSL_PRIV = './webhook_pkey.pem'  # Path to the ssl private key
 
 # Quick'n'dirty SSL certificate generation:
 #
@@ -78,14 +78,11 @@ bot.remove_webhook()
 time.sleep(1)
 
 # Set webhook
-bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH,
+bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
                 # certificate=open(WEBHOOK_SSL_CERT, 'r')
-                )
 
 if __name__ == "__main__":
 # Start flask server
-    app.run(
+    app.run(port=WEBHOOK_PORT)
         # host=WEBHOOK_LISTEN,
-            port=WEBHOOK_PORT,
-            # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
-           )
+        # ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
